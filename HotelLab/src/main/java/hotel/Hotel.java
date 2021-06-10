@@ -12,13 +12,13 @@ public class Hotel {
     private ArrayList<Bedroom> bedroomsList;
     private ArrayList<ConferenceRoom> conferenceRoomsList;
     private ArrayList<Booking> bookingList;
-    private HashMap<String, DiningRoom> diningRoom;
-
+    private HashMap<String, DiningRoom> diningRoomList;
 
     public Hotel() {
         this.bedroomsList = new ArrayList<>();
         this.conferenceRoomsList = new ArrayList<>();
         this.bookingList = new ArrayList<>();
+        this.diningRoomList = new HashMap<>();
     }
 
     public int getBedroomListSize() {
@@ -79,5 +79,12 @@ public class Hotel {
         return totalBill;
     }
 
+    public void addDiningRoomToCollection(DiningRoom diningRoom) {
+        String diningRoomName = diningRoom.getName();
+        this.diningRoomList.put(diningRoomName, diningRoom);
+    }
 
+    public int getDiningRoomListSize() {
+        return this.diningRoomList.size();
+    }
 }

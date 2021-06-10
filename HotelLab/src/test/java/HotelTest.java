@@ -2,6 +2,7 @@ import hotel.Booking;
 import hotel.Hotel;
 import hotel.room.Bedroom;
 import hotel.room.ConferenceRoom;
+import hotel.room.DiningRoom;
 import hotel.room.RoomType;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ public class HotelTest {
     private Bedroom bedroom;
     private ConferenceRoom conferenceRoom;
     private Booking booking;
+    private DiningRoom diningRoom;
 
     @Before
     public void before() {
@@ -21,6 +23,7 @@ public class HotelTest {
         bedroom = new Bedroom(RoomType.DOUBLE, 100, 50);
         conferenceRoom = new ConferenceRoom(15, "Board Room");
         booking = new Booking(bedroom, 2);
+        diningRoom = new DiningRoom("CodeClan Cafe", 25);
 
     }
 
@@ -56,6 +59,12 @@ public class HotelTest {
     public void canGetTotalBill() {
         hotel.bookRoom(booking);
         assertEquals(100, hotel.getTotalBill(booking, bedroom), 0.00);
+    }
+
+    @Test
+    public void canAddDiningRoomToCollection() {
+        hotel.addDiningRoomToCollection(diningRoom);
+        assertEquals(1, hotel.getDiningRoomListSize());
     }
 
 }
