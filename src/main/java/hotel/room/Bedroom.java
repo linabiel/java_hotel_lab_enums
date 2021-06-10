@@ -1,9 +1,5 @@
 package hotel.room;
 
-import hotel.Guest;
-
-import java.util.ArrayList;
-
 public class Bedroom extends Room{
 
     private RoomType roomType;
@@ -14,4 +10,21 @@ public class Bedroom extends Room{
         this.roomType = roomType;
         this.roomNumber = roomNumber;
     }
+
+    public Bedroom getBedroomList() {
+        return this.getBedroomList();
+    }
+
+    public RoomType getRoomType() {
+        return this.roomType;
+    }
+
+    public int getEnumCapacity() {
+        return this.roomType.getCapacity();
+    }
+
+    public int getRoomNumber() {
+        return this.roomNumber;
+    }
+
 }
