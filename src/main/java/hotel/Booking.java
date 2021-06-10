@@ -11,4 +11,8 @@ public class Booking {
         this.bedroom = bedroom;
         this.nightsBooked = nightsBooked;
     }
+
+    public int getNightsBooked() {
+        return this.nightsBooked;
+    }
 }

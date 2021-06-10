@@ -13,7 +13,7 @@ public enum RoomType {
         this.capacity = capacity;
     }
 
-    public int getCapacity() {
+    public int getEnumCapacity() {
         return this.capacity;
     }
 }

@@ -2,15 +2,17 @@ package hotel;
 
 import hotel.room.Bedroom;
 import hotel.room.ConferenceRoom;
-import hotel.room.Room;
+import hotel.room.DiningRoom;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Hotel {
 
     private ArrayList<Bedroom> bedroomsList;
     private ArrayList<ConferenceRoom> conferenceRoomsList;
     private ArrayList<Booking> bookingList;
+    private HashMap<String, DiningRoom> diningRoom;
 
 
     public Hotel() {
@@ -54,10 +56,10 @@ public class Hotel {
         ArrayList<Guest> guestList = conferenceRoom.getGuestList();
         guestList.remove(guest);
     }
-
-    private Bedroom getBedroom(Bedroom bedroom) {
-        return bedroom;
-    }
+//
+//    private Bedroom getBedroom(Bedroom bedroom) {
+//        return bedroom;
+//    }
 
     public ArrayList<Booking> getBookingList() {
         return this.bookingList;
@@ -69,6 +71,12 @@ public class Hotel {
 
     public void bookRoom(Booking booking) {
         this.bookingList.add(booking);
+    }
+
+    public double getTotalBill(Booking booking, Bedroom bedroom) {
+        double nightlyRate = bedroom.getNightlyRate();
+        double totalBill = nightlyRate * booking.getNightsBooked();
+        return totalBill;
     }
 
 

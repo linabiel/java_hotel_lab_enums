@@ -18,7 +18,7 @@ public class HotelTest {
     @Before
     public void before() {
         hotel = new Hotel();
-        bedroom = new Bedroom(RoomType.DOUBLE, 100);
+        bedroom = new Bedroom(RoomType.DOUBLE, 100, 50);
         conferenceRoom = new ConferenceRoom(15, "Board Room");
         booking = new Booking(bedroom, 2);
 
@@ -52,5 +52,10 @@ public class HotelTest {
         assertEquals(1, hotel.getBookingListSize());
     }
 
+    @Test
+    public void canGetTotalBill() {
+        hotel.bookRoom(booking);
+        assertEquals(100, hotel.getTotalBill(booking, bedroom), 0.00);
+    }
 
 }
